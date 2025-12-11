@@ -48,7 +48,7 @@ ________________________________________________________________________________
 |		3:	1 | 1	|		3:	0x10 for `i`	|		3:	variabl `i` whit `%i`: `16` | variabl i whit `%d`: `16`		|
 |					|			0x10 for `d`	|			variabl `d` whit `%i`: `0`  | variabl d whit `%d`: `0`		|
 |___________________|___________________________|_______________________________________________________________________|
-###										**`%d` can't work whit hexadicimal in scanf**
+####									**`%d` can't work whit hexadicimal in scanf**
 
 * **Unsigned Integers:** `%u`
 * **Hexadecimals (Lower/Upper):** `%x`, `%X`
