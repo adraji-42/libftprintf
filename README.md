@@ -53,19 +53,19 @@ code:
   </thead>
   <tbody>
     <tr style="color: #c9d1d9;">
-      <td style="border: 1px solid #30363d; padding: 10px;">1: 1 | 1</td>
-      <td style="border: 1px solid #30363d; padding: 10px;">1: 10 for `i` | 10 for `d`</td>
-      <td style="border: 1px solid #30363d; padding: 10px;">1: variabl `i` whit `%i`: `10` | variabl `d` whit `%d`: `10` | variabl `d` whit `%i`: `10` | variabl `d` whit `%d`: `10`</td>
+      <td style="border: 1px solid #30363d; padding: 10px;">1 | 1</td>
+      <td style="border: 1px solid #30363d; padding: 10px;">10 for `i` | 10 for `d`</td>
+      <td style="border: 1px solid #30363d; padding: 10px;">variabl `i` whit `%i`: `10` | variabl `d` whit `%d`: `10` | variabl `d` whit `%i`: `10` | variabl `d` whit `%d`: `10`</td>
     </tr>
     <tr style="color: #c9d1d9;">
-      <td style="border: 1px solid #30363d; padding: 10px;">2: 1 | 1</td>
-      <td style="border: 1px solid #30363d; padding: 10px;">2: 010 for `i` | 010 for `d`</td>
-      <td style="border: 1px solid #30363d; padding: 10px;">2: variabl `i` whit `%i`: `8` | variabl `d` whit `%d`: `10` | variabl `d` whit `%i`: `8` | variabl `d` whit `%d`: `10`</td>
+      <td style="border: 1px solid #30363d; padding: 10px;">1 | 1</td>
+      <td style="border: 1px solid #30363d; padding: 10px;">010 for `i` | 010 for `d`</td>
+      <td style="border: 1px solid #30363d; padding: 10px;">variabl `i` whit `%i`: `8` | variabl `d` whit `%d`: `10` | variabl `d` whit `%i`: `8` | variabl `d` whit `%d`: `10`</td>
     </tr>
     <tr style="color: #c9d1d9;">
-      <td style="border: 1px solid #30363d; padding: 10px;">3: 1 | 1</td>
-      <td style="border: 1px solid #30363d; padding: 10px;">3: 0x10 for `i` | 0x10 for `d`</td>
-      <td style="border: 1px solid #30363d; padding: 10px;">3: variabl `i` whit `%i`: `16` | variabl `d` whit `%d`: `0` | variabl `d` whit `%i`: `16` | variabl `d` whit `%d`: `0`</td>
+      <td style="border: 1px solid #30363d; padding: 10px;">1 | 1</td>
+      <td style="border: 1px solid #30363d; padding: 10px;">0x10 for `i` | 0x10 for `d`</td>
+      <td style="border: 1px solid #30363d; padding: 10px;">variabl `i` whit `%i`: `16` | variabl `d` whit `%d`: `0` | variabl `d` whit `%i`: `16` | variabl `d` whit `%d`: `0`</td>
     </tr>
   </tbody>
 </table>
