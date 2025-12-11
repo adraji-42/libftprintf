@@ -6,15 +6,15 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 01:09:54 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/07 12:21:11 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/11 08:24:33 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_hexalen(unsigned int n)
+static size_t	ft_hexalen(unsigned int n)
 {
-	int	len;
+	size_t	len;
 
 	len = 0;
 	if (!n)
@@ -48,7 +48,7 @@ static char	*ft_fillhexa(char *hexa, unsigned int n, const char *base)
 
 char	*ft_hexa(unsigned int n, char x)
 {
-	int		len;
+	size_t	len;
 	char	*hexa;
 
 	len = ft_hexalen(n);

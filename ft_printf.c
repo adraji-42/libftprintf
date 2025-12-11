@@ -6,13 +6,13 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 01:09:40 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/07 12:42:48 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/11 08:21:58 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_switch(va_list args, char fms)
+static int	ft_switch(va_list args, const char fms)
 {
 	char	*str;
 	int		count;
