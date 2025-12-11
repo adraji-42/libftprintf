@@ -25,3 +25,5 @@ This project focuses on two core technical aspects:
 
 [![GitHub stars](https://img.shields.io/github/stars/user/repo)](https://github.com/user/repo/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+<font color="blue">هذا النص أزرق.</font>
