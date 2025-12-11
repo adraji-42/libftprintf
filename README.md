@@ -53,7 +53,11 @@ ________________________________________________________________________________
 |					|			0x10 for `d`	|			variabl `d` whit `%i`: `0`  | variabl d whit `%d`: `0`		|
 |___________________|___________________________|_______________________________________________________________________|
 ####									**`%d` can't work whit hexadicimal in scanf**
+> [!NOTE]
+> Hādhā qism li-l-mulāḥaẓāt al-muhimmah.
 
+> [!WARNING]
+> Hādhā tḥdīr yajib 'an tanṭabih 'ilayh.
 * **Unsigned Integers:** `%u`
 * **Hexadecimals (Lower/Upper):** `%x`, `%X`
 * **Percentage sign:** `%%`
