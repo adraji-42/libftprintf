@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 07:49:33 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/12 07:49:41 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/12 07:53:11 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define LIBFT_H
 
 # define LONG_MAX __LONG_MAX__
-// # define SIZE_MAX __SIZE_MAX__
+# define SIZE_MAX __SIZE_MAX__
 
 # include <stdlib.h>
 # include <unistd.h>
