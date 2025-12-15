@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_print_char_fms.h                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/12 15:45:07 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/12 15:45:13 by adraji           ###   ########.fr       */
+/*   Created: 2025/12/13 06:29:00 by adraji            #+#    #+#             */
+/*   Updated: 2025/12/13 06:54:16 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef FT_PRINT_CHAR_FMS_H
+# define FT_PRINT_CHAR_FMS_H
 
-int	ft_putstr(char *s)
+# include "ft_printf.h"
+
+typedef struct s_lens_print_char
 {
-	int	save;
-	int	count;
+	int	len_char;
+	int	len_zeros;
+	int	len_padding;
+	int	total_content_len;
+}	t_lens;
 
-	count = 0;
-	if (!s)
-		return (write(1, "(null)", 6));
-	while (*s)
-	{
-		save = ft_putchar(*(s++));
-		if (save < 0)
-			return (-1);
-		count += save;
-	}
-	return (count);
-}
+#endif

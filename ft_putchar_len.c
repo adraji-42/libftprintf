@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_len.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/12 15:45:07 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/12 15:45:13 by adraji           ###   ########.fr       */
+/*   Created: 2025/10/31 01:09:51 by adraji            #+#    #+#             */
+/*   Updated: 2025/12/12 15:23:32 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putstr(char *s)
+int	ft_putchar_len(char c, int n)
 {
-	int	save;
+	int	i;
 	int	count;
+	int	old_count;
 
+	i = 0;
 	count = 0;
-	if (!s)
-		return (write(1, "(null)", 6));
-	while (*s)
+	while (i < n)
 	{
-		save = ft_putchar(*(s++));
-		if (save < 0)
+		old_count = count;
+		count += write (1, &c, 1);
+		if (count < old_count)
 			return (-1);
-		count += save;
+		i++;
 	}
 	return (count);
 }

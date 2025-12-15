@@ -5,67 +5,85 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/31 01:09:40 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/12 07:41:54 by adraji           ###   ########.fr       */
+/*   Created: 2025/12/12 15:43:14 by adraji            #+#    #+#             */
+/*   Updated: 2025/12/12 15:44:20 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_switch(va_list args, const char fms)
+static int	ft_print_dispatcher(t_flags *f, va_list args)
 {
-	char	*str;
-	int		save;
+	int	count;
 
-	if (fms == 'd' || fms == 'i')
-		str = ft_itoa(va_arg(args, int));
-	else if (fms == 'u')
-		str = ft_utoa(va_arg(args, unsigned int));
-	else if (fms == 'c')
-		return (ft_putchar(va_arg(args, int)));
-	else if (fms == 's')
-		str = ft_strdup(va_arg(args, char *));
-	else if (fms == 'p')
-		str = (ft_address(va_arg(args, void *)));
-	else if (fms == 'x' || fms == 'X')
-		str = ft_hexa(va_arg(args, unsigned int), fms);
-	else if (fms == '%')
-		return (ft_putchar('%'));
-	else
+	count = 0;
+	if (f->specifier == 'c')
+		count = ft_print_char_fms(va_arg(args, int), *f);
+	else if (f->specifier == 's')
+		count = ft_print_str_fms(va_arg(args, char *), *f);
+	else if (f->specifier == 'd' || f->specifier == 'i')
+		count = ft_print_int_fms(va_arg(args, int), *f);
+	else if (f->specifier == 'u')
+		count = ft_print_unsigned_fms(va_arg(args, unsigned int), *f);
+	else if (f->specifier == 'x' || f->specifier == 'X')
+		count = ft_print_hex_fms(va_arg(args, unsigned int), *f);
+	else if (f->specifier == 'p')
+		count = ft_print_ptr_fms(va_arg(args, void *), *f);
+	else if (f->specifier == '%')
+		count = ft_print_percent_fms(*f);
+	return (count);
+}
+
+static int	ft_read_fms(const char *fms, int *index, t_flags *f, va_list args)
+{
+	int		chars_read;
+	int		total_printed;
+
+	total_printed = 0;
+	chars_read = ft_parse_flags(fms + (*index), f, args);
+	if (!f->specifier)
 	{
-		str = ft_strdup("% ");
-		str[1] = fms;
+		if (*index > 0)
+			total_printed += ft_putchar_len(fms[(*index) - 1], 1);
 	}
-	save = ft_putstr(str);
-	free (str);
-	return (save);
+	else
+		total_printed += ft_print_dispatcher(f, args);
+	if (total_printed < 0)
+		return (-1);
+	*index += chars_read;
+	return (total_printed);
+}
+
+static int	ft_va_end(va_list args)
+{
+	va_end(args);
+	return (-1);
 }
 
 int	ft_printf(const char *fms, ...)
 {
-	size_t	i;
+	t_vars	var;
 	va_list	args;
-	int		save;
-	int		count;
+	t_flags	flags;
 
 	if (!fms)
-		return (-1);
-	i = 0;
-	count = 0;
+		return (0);
+	var.index = 0;
+	var.total_printed = 0;
 	va_start(args, fms);
-	while (fms[i])
+	while (fms[var.index])
 	{
-		if (fms[i] != '%')
-			save = ft_putchar(fms[i++]);
-		else if (fms[++i])
-			save = ft_switch(args, fms[i++]);
-		if (save < 0)
+		if (fms[var.index] == '%')
 		{
-			va_end(args);
-			return (-1);
+			var.index++;
+			var.current_print = ft_read_fms(fms, &(var.index), &flags, args);
 		}
-		count += save;
+		else
+			var.current_print = ft_putchar_len(fms[var.index++], 1);
+		if (var.current_print == -1)
+			return (ft_va_end(args));
+		var.total_printed += var.current_print;
 	}
 	va_end(args);
-	return (count);
+	return (var.total_printed);
 }

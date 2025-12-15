@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_print_ptr_fms.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/31 01:09:51 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/12 07:42:02 by adraji           ###   ########.fr       */
+/*   Created: 2025/12/13 07:35:27 by adraji            #+#    #+#             */
+/*   Updated: 2025/12/13 07:40:21 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef FT_PRINT_PTR_FMS_H
+# define FT_PRINT_PTR_FMS_H
 
-int	ft_putchar(char c)
+# include "ft_printf.h"
+
+typedef struct s_lens_print_ptr
 {
-	return (write (1, &c, 1));
-}
+	int	len_ptr;
+	int	len_zeros;
+	int	len_padding;
+	int	total_content_len;
+}	t_lens;
+
+#endif
