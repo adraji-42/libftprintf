@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 20:34:54 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/12 07:44:51 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/15 09:23:57 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,58 +17,43 @@ static size_t	ft_sizenb(int n)
 	size_t			size;
 	unsigned int	nb;
 
-	size = 0;
-	nb = (unsigned int)n;
-	if (nb <= 0)
-		nb = -nb;
+	size = (n <= 0);
+	if (n == 0)
+		return (1);
+	if (n < 0)
+		nb = (unsigned int)-n;
+	else
+		nb = (unsigned int)n;
 	while (nb > 0)
 	{
 		nb /= 10;
 		size++;
 	}
-	return (size + (n <= 0));
-}
-
-static void	ft_revers(char *s)
-{
-	int		i;
-	int		j;
-	char	t;
-
-	i = 0;
-	j = ft_strlen(s) - 1;
-	while (i < j)
-	{
-		t = s[i];
-		s[i++] = s[j];
-		s[j--] = t;
-	}
+	return (size);
 }
 
 char	*ft_itoa(int n)
 {
+	int				len;
 	char			*nb;
-	int				i;
 	unsigned int	nbr;
 
-	nb = malloc(sizeof(char) * (ft_sizenb(n) + 1));
+	len = ft_sizenb(n);
+	nb = malloc(sizeof(char) * (len + 1));
 	if (!nb)
 		return (NULL);
-	i = 0;
 	if (n == 0)
-		nb[i++] = '0';
+		nb[0] = '0';
+	nbr = (unsigned int)n;
 	if (n < 0)
-		nbr = - (unsigned int)n;
-	else
-		nbr = n;
+		nbr = -nbr;
+	nb[len] = '\0';
 	while (nbr > 0)
 	{
-		nb[i++] = (nbr % 10) + '0';
+		nb[--len] = (nbr % 10) + '0';
 		nbr /= 10;
 	}
 	if (n < 0)
-		nb[i++] = '-';
-	nb[i] = '\0';
-	ft_revers(nb);
+		nb[0] = '-';
 	return (nb);
 }

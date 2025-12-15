@@ -5,15 +5,15 @@
 #                                                     +:+ +:+         +:+      #
 #    By: adraji <adraji@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/10/31 15:47:54 by adraji            #+#    #+#              #
-#    Updated: 2025/12/12 07:42:20 by adraji           ###   ########.fr        #
+#    Created: 2025/12/14 11:06:31 by adraji            #+#    #+#              #
+#    Updated: 2025/12/14 11:26:29 by adraji           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME        = libftprintf.a
-HEADER      = ft_printf.h
-
 LIBFT_DIR   = libft
+HEADER      = ft_printf.h ft_printf_data_utils.h $(LIBFT_DIR)/libft.h
+
 CC          = cc
 CFLAGS      = -Wall -Wextra -Werror
 
@@ -27,7 +27,9 @@ SRC_LIBFT   = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isas
               ft_lstadd_back_bonus.c ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c \
               ft_lstmap_bonus.c
 
-SRC_PRINTF  = ft_printf.c ft_putchar.c ft_putstr.c ft_utoa.c ft_hexa.c ft_address.c
+SRC_PRINTF  = ft_parse_flags.c ft_print_ptr_fms.c ft_print_char_fms.c ft_print_str_fms.c \
+              ft_printf.c ft_print_hex_fms.c ft_print_unsigned_fms.c ft_printf_data_utils.c \
+              ft_print_int_fms.c ft_putchar_len.c
 
 SRC         = $(addprefix $(LIBFT_DIR)/, $(SRC_LIBFT)) $(SRC_PRINTF)
 
@@ -36,17 +38,19 @@ OBJ         = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@ar rcs $(NAME) $(OBJ)
+	ar rcs $(NAME) $(OBJ)
 
 %.o: %.c $(HEADER)
-	@$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
+
+bonus: all
 
 clean:
-	@rm -f $(OBJ)
+	rm -f $(OBJ)
 
 fclean: clean
-	@rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: clean
+.PHONY: all clean fclean re

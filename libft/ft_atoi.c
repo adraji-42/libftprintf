@@ -6,57 +6,37 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 10:01:13 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/12 07:44:32 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/15 09:23:47 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static long	ft_number(const char *nptr, size_t i, int s)
-{
-	unsigned long	n;
-	int				digit;
-
-	n = 0;
-	while (nptr[i] && nptr[i] < 58 && nptr[i] > 47)
-	{
-		digit = nptr[i] - 48;
-		if (n > LONG_MAX / 10)
-		{
-			if (s < 0)
-				return (0);
-			return (-1);
-		}
-		n *= 10;
-		if (n > LONG_MAX / 10 && digit > 7)
-		{
-			if (s < 0)
-				return (0);
-			return (-1);
-		}
-		n += digit;
-		i++;
-	}
-	return ((long)n);
-}
-
 int	ft_atoi(const char *nptr)
 {
-	size_t	i;
 	long	n;
-	int		s;
+	t_signe	signe;
 
-	i = 0;
 	n = 0;
-	s = 1;
-	while (nptr[i] && ((nptr[i] == ' ') || (nptr[i] < 14 && nptr[i] > 8)))
-		i++;
-	if (nptr[i] == '-' || nptr[i] == '+')
+	signe = 1;
+	while (*nptr && ((*nptr == ' ') || (*nptr >= 9 && *nptr <= 13)))
+		nptr++;
+	if (*nptr == '-' || *nptr == '+')
 	{
-		if (nptr[i] == '-')
-			s = -1;
-		i++;
+		if (*nptr == '-')
+			signe = -1;
+		nptr++;
 	}
-	n = ft_number(nptr, i, s);
-	return (n * s);
+	while (*nptr && *nptr >= '0' && *nptr <= '9')
+	{
+		if (n > LM / 10 || (n == LM / 10 && (*nptr - '0') > LM % 10))
+		{
+			if (signe == 1)
+				return (-1);
+			return (0);
+		}
+		n = n * 10 + (*nptr - '0');
+		nptr++;
+	}
+	return ((int)(n * signe));
 }
