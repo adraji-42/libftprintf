@@ -79,6 +79,21 @@ These functions collectively allow `ft_printf` to parse the format string, extra
 
 ## Instructions
 
+**To Make Libftprintf Library:** 
+*   `make`
+
+**To Clean Repo:**
+*   `make clean`
+
+**To Delete Library:**
+*   `make fclean`
+
+**To Remake Library:**
+*   `make re`
+
+**To Compaile With Library:**
+*   `cc -Wall -Wextra -Werror `**`file_name`**`libftprintf.a`
+
 ## Resources
 
 - [Manual CS50](https://manual.cs50.io/3/stdarg)
