@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 16:30:37 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/14 15:39:11 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/16 18:07:42 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "libft/libft.h"
 
 # define INT_MAX __INT_MAX__
+# define INT_MIN _SC_INT_MIN
 
 typedef char	t_bool;
 
@@ -49,8 +50,8 @@ typedef struct s_flags
 	t_bool	hash;
 	t_bool	plus;
 	t_bool	space;
-	int		width;
-	int		precision;
+	long	width;
+	long	precision;
 	char	specifier;
 }	t_flags;
 
