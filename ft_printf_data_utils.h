@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 16:30:37 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/16 18:07:42 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/17 06:17:51 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ typedef struct s_flags
 	char	specifier;
 }	t_flags;
 
-int	ft_atoi_int_max(const char *nptr);
+int	ft_ston(const char *nptr);
 int	ft_putchar_len(char c, int len);
 int	ft_put_padding(char pad_char, t_lens *len, t_vars *var);
 int	ft_put_zeros(int len_zeros, t_vars *var);

@@ -6,29 +6,17 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 17:26:27 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/14 15:40:07 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/17 06:17:13 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_data_utils.h"
 
-int	ft_atoi_int_max(const char *nptr)
+int	ft_ston(const char *nptr)
 {
-	size_t	i;
 	long	n;
-	int		s;
 
-	i = 0;
 	n = 0;
-	s = 1;
-	while (*nptr && ((*nptr == ' ') || (*nptr < 14 && *nptr > 8)))
-		nptr++;
-	if (*nptr == '-' || *nptr == '+')
-	{
-		if (*nptr == '-')
-			s = -1;
-		nptr++;
-	}
 	while (*nptr && *nptr < 58 && *nptr > 47)
 	{
 		n *= 10;
@@ -37,7 +25,7 @@ int	ft_atoi_int_max(const char *nptr)
 			return (-1);
 		nptr++;
 	}
-	return (n * s);
+	return (n);
 }
 
 int	ft_putnbr_abs(int n)

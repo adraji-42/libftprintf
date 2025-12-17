@@ -102,7 +102,7 @@ These functions collectively allow `ft_printf` to parse the format string, extra
 ### Use of AI
 
 * AI been used on that project to: 
-	* Explain some concepts, for exampel how to work vardiac function, explain to me how external functions work; I'm waiting for the write  ;D.
+	* Explain some concepts, for exampel how to work vardiac function, explain to me how external functions work, except for the write function.
 	* give me cases for flag and handle white me this cases.
 	* Help to traduction my **`README.md`** file to english.
 

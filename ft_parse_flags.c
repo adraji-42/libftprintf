@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 13:58:50 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/16 18:03:56 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/17 06:17:51 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static int	ft_get_width(const char *fmt, t_flags *f, va_list args)
 	}
 	else
 	{
-		f->width = ft_atoi_int_max(fmt + i);
+		f->width = ft_ston(fmt + i);
 		if (f->width < 0)
 			return (-1);
 		while (ft_isdigit(fmt[i]))
@@ -81,7 +81,7 @@ static int	ft_get_precision(const char *fmt, t_flags *f, va_list args)
 		}
 		else
 		{
-			f->precision = ft_atoi_int_max(fmt + i);
+			f->precision = ft_ston(fmt + i);
 			while (ft_isdigit(fmt[i]))
 				i++;
 		}
