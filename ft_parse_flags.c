@@ -20,21 +20,21 @@ static int	ft_get_flags(const char *fmt, t_flags *f)
 	while (fmt[i] && ft_strchr("-0# +", fmt[i]))
 	{
 		if (fmt[i] == '-')
-			f->minus = 1;
+			f->minus = TRUE;
 		else if (fmt[i] == '0')
-			f->zero = 1;
+			f->zero = TRUE;
 		else if (fmt[i] == '#')
-			f->hash = 1;
+			f->hash = TRUE;
 		else if (fmt[i] == ' ')
-			f->space = 1;
+			f->space = TRUE;
 		else if (fmt[i] == '+')
-			f->plus = 1;
+			f->plus = TRUE;
 		i++;
 	}
 	if (f->minus)
-		f->zero = 0;
+		f->zero = FAULS;
 	if (f->plus)
-		f->space = 0;
+		f->space = FAULS;
 	return (i);
 }
 
@@ -49,9 +49,9 @@ static int	ft_get_width(const char *fmt, t_flags *f, va_list args)
 		i++;
 		if (f->width < 0)
 		{
-			f->minus = 1;
+			f->minus = TRUE;
 			f->width *= -1;
-			f->zero = 0;
+			f->zero = FAULS;
 		}
 	}
 	else
@@ -72,7 +72,7 @@ static int	ft_get_precision(const char *fmt, t_flags *f, va_list args)
 	i = 0;
 	if (fmt[i] == '.')
 	{
-		f->dot = 1;
+		f->dot = TRUE;
 		i++;
 		if (fmt[i] == '*')
 		{
@@ -86,7 +86,7 @@ static int	ft_get_precision(const char *fmt, t_flags *f, va_list args)
 				i++;
 		}
 		if (f->precision < 0)
-			f->dot = 0;
+			f->dot = FAULS;
 	}
 	return (i);
 }
@@ -110,6 +110,6 @@ int	ft_parse_flags(const char *fmt, t_flags *f, va_list args)
 		pos++;
 	}
 	if (f->dot && ft_strchr("diuxX", f->specifier))
-		f->zero = 0;
+		f->zero = FAULS;
 	return (pos);
 }

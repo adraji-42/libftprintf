@@ -16,6 +16,8 @@
 # include <stdarg.h>
 # include "libft/libft.h"
 
+# define TRUE 1
+# define FAULS 0
 # define INT_MAX __INT_MAX__
 # define INT_MIN _SC_INT_MIN
 
